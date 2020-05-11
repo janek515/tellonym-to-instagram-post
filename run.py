@@ -4,7 +4,10 @@ from photogen import PhotoGen as Pg
 from PIL import ImageFont
 
 
-'''
+class TellonymPost:
+
+    def __init__(self, creds, interval=10, fontcol=(255, 255, 255), rectcol=(47, 49, 51), padding=10):
+        '''
     
     Needed variables:
     
@@ -29,40 +32,40 @@ from PIL import ImageFont
     fontColor: tuple[R, G, B]
         specifies the color of the font
 
+
+    :type creds: tuple
+
 '''
-username = 'username'
-password = 'password'
-interval = 10
-font = ImageFont.truetype("Lato.ttf", 24, encoding='utf-8')
-rectColor = (47, 49, 51)
-padding = 10
-fontColor = (255, 255, 255)
+        self.username, self.password = creds
+        self.interval = interval
+        self.font = ImageFont.truetype("Lato.ttf", 24, encoding='utf-8')
+        self.rectColor = rectcol
+        self.padding = padding
+        self.fontColor = fontcol
+        self.client = Te.Tellonym(self.username, self.password)
+        print('Logged in, succesfully.')
+        self.lastTellID = open('lastID.txt', 'r').read()
+        self.tellsToSend = []
+        self.IDs = []
 
-
-client = Te.Tellonym(username, password)
-
-lastTellID = open('lastID.txt', 'r').read()
-
-tellsToSend = []
-IDs = []
-
-while 1:
-    tellsToSend = []
-    IDs = []
-    for x in client.get_tells():
-        if str(x.id) == lastTellID:
-            break
-        tellsToSend.append(x.tell)
-        IDs.append(x.id)
-        print(x.id)
-    try:
-        lastTellID = IDs[0]
-        open('lastID.txt', 'w').write(str(lastTellID))
-    except IndexError:
-        print('sraka')
-    for x in tellsToSend:
-        phot = Pg(['tell', 'image/jpeg', x, font, rectColor, padding, fontColor])
-        phot.gen()
-    tm.sleep(interval * 60)
+    def run(self):
+        while 1:
+            self.tellsToSend = []
+            self.IDs = []
+            for x in self.client.get_tells():
+                if str(x.id) == self.lastTellID:
+                    break
+                self.tellsToSend.append(x.tell)
+                self.IDs.append(x.id)
+                print(x.id)
+            try:
+                self.lastTellID = self.IDs[0]
+                open('lastID.txt', 'w').write(str(self.lastTellID))
+            except IndexError:
+                print('sraka')
+            for x in self.tellsToSend:
+                phot = Pg(['tell', 'image/jpeg', x, self.font, self.rectColor, self.padding, selffontColor])
+                phot.gen()
+            tm.sleep(self.interval * 60)
 
 
