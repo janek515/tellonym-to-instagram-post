@@ -43,7 +43,7 @@ class TellonymPost:
         self.padding = padding
         self.fontColor = fontcol
         self.client = Te.Tellonym(self.username, self.password)
-        print('Logged in, succesfully.')
+        print('Logged in succesfully.')
         self.lastTellID = open('lastID.txt', 'r').read()
         self.tellsToSend = []
         self.IDs = []

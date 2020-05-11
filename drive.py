@@ -61,7 +61,7 @@ def upload(name, mime):
         file = main().files().create(body=file_metadata,
                                      media_body=media,
                                      fields='id').execute()
-        print('File succesfully uploaded')
+        print('File succesfully uploaded.')
         print('File ID: %s' % file.get('id'))
 
 
