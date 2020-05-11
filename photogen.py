@@ -29,11 +29,10 @@ class PhotoGen:
         open('no.txt', 'w').write(str(int(self.no) + 1).zfill(5))
 
     def gen(self):
-        # while self.W <
         self.draw.rectangle(self.rectXY, self.bgColor)
         self.draw.multiline_text((self.width * self.w + self.padding, self.height * self.h + self.padding), self.text,
-                                 self.fontColor, font=self.font, language='pl', align='center')
-        self.baseImg.save(self.name, quality=95)
+                                 self.fontColor, font=self.font)
+        self.baseImg.save(self.name, quality=90)
         main()
         upload(self.name, self.mime)
         folderid = open('drive.txt', 'r').read
