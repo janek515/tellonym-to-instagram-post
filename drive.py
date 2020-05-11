@@ -51,16 +51,18 @@ def main():
 
 def upload(name, mime):
     file_metadata = {
-        'name': name,
-        'parents': ['1gS3tOJ7R1DrkWu_n3Ib4uweIpn0Qkx63']
+        'name': name
     }
-    media = MediaFileUpload(name,
-                            mimetype=mime)
-    file = main().files().create(body=file_metadata,
-                                 media_body=media,
-                                 fields='id').execute()
-    print('File succesfully uploaded')
-    print('File ID: %s' % file.get('id'))
+    folderid = open('drive.txt', 'r').read
+    if folderid != 'False':
+        file_metadata.update({'parents': [folderid]})
+        media = MediaFileUpload(name,
+                                mimetype=mime)
+        file = main().files().create(body=file_metadata,
+                                     media_body=media,
+                                     fields='id').execute()
+        print('File succesfully uploaded')
+        print('File ID: %s' % file.get('id'))
 
 
 if __name__ == '__main__':

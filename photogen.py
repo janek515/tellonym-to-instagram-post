@@ -36,4 +36,6 @@ class PhotoGen:
         self.baseImg.save(self.name, quality=95)
         main()
         upload(self.name, self.mime)
-        os.remove(self.name)
+        folderid = open('drive.txt', 'r').read
+        if folderid != 'False':
+            os.remove(self.name)

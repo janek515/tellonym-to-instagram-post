@@ -1,2 +1,5 @@
-requests
-Pillow
+requests~=2.23.0
+Pillow~=7.1.2
+google-api-python-client
+google-auth-httplib2
+google-auth-oauthlib
