@@ -7,7 +7,7 @@ from PIL import ImageFont
 class TellonymPost:
 
     def __init__(self, creds, interval=10, fontcol=(255, 255, 255), rectcol=(47, 49, 51), padding=10):
-        '''
+        """
     
     Needed variables:
     
@@ -35,7 +35,7 @@ class TellonymPost:
 
     :type creds: tuple
 
-'''
+        """
         self.username, self.password = creds
         self.interval = interval
         self.font = ImageFont.truetype("Lato.ttf", 24, encoding='utf-8')
@@ -64,8 +64,6 @@ class TellonymPost:
             except IndexError:
                 print('sraka')
             for x in self.tellsToSend:
-                phot = Pg(['tell', 'image/jpeg', x, self.font, self.rectColor, self.padding, selffontColor])
+                phot = Pg(['tell', 'image/jpeg', x, self.font, self.rectColor, self.padding, self.fontColor])
                 phot.gen()
             tm.sleep(self.interval * 60)
-
-
