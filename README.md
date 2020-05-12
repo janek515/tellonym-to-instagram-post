@@ -1,5 +1,7 @@
 # Tellonym to instagram post
 
+![Contributors](https://img.shields.io/github/contributors/janek515/tellonym-to-instagram-post) ![Size](https://img.shields.io/github/repo-size/janek515/tellonym-to-instagram-post)
+
 This python module makes images from Tellonym 'tells' and automatically uploads the to your google drive.
 
 ## Dependencies
