@@ -1,5 +1,6 @@
 import json
 import requests
+from tellonym.exceptions import *
 
 class Answer:
 
