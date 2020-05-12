@@ -4,18 +4,25 @@
 
 This python module makes images from Tellonym 'tells' and automatically uploads the to your google drive.
 
-## Dependencies
+## Installation
+
+### Dependencies
 In order to run this module you will need:
 - PIL as [Pillow](https://github.com/python-pillow/Pillow)
 - [requests](https://requests.readthedocs.io/en/master/)
 - Google Drive API ([Google Client Library](https://developers.google.com/api-client-library))
 - [tellonym-python](https://github.com/Logxn/tellonym-python) (included)
 
-### Installing dependencies
+#### Installing dependencies
 
 ```bash
 $ pip install -r requirements.txt
 ```
+
+### Downloading module
+
+Go to [the releases page](https://github.com/janek515/tellonym-to-instagram-post/releases), download the newest version and extract it into folder of your choice
+
 
 ## Configuration
 
@@ -63,4 +70,4 @@ Now the function will start checking the 'tells', generating imagea, and sending
 
 Credit to [Logxn](https://github.com/Logxn/) for his [tellonym-python](https://github.com/Logxn/tellonym-python) API.
 
-More about license concerning this module inside the `LICENSE` file.
+More about license concerning this module inside the [`LICENSE`](LICENSE) file.
