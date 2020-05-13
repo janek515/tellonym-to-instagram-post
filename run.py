@@ -9,31 +9,31 @@ class TellonymPost:
     def __init__(self, creds, interval=10, fontcol=(255, 255, 255), rectcol=(47, 49, 51), padding=10):
         """
     
-    Needed variables:
+            Needed variables:
     
-    username: str
-        your tellonym username
+            username: str
+                your tellonym username
         
-    password: str
-        your tellonym password
+            password: str
+                your tellonym password
         
-    interval: int/float
-        how often you want the script to check for new tells (in minutes)
+            interval: int/float
+                how often you want the script to check for new tells (in minutes)
         
-    font: freeTypeFont
-        the font you want the script to use
+            font: freeTypeFont
+                the font you want the script to use
     
-    rectColor: tuple[R, G, B]
-        specifies the color of the rect on which the text is shown
+            rectColor: tuple[R, G, B]
+                specifies the color of the rect on which the text is shown
         
-    padding: int
-        padding of the text inside the rect
+            padding: int
+                padding of the text inside the rect
         
-    fontColor: tuple[R, G, B]
-        specifies the color of the font
+            fontColor: tuple[R, G, B]
+                specifies the color of the font
 
 
-    :type creds: tuple
+            :type creds: tuple
 
         """
         self.username, self.password = creds
@@ -57,12 +57,13 @@ class TellonymPost:
                     break
                 self.tellsToSend.append(x.tell)
                 self.IDs.append(x.id)
-                print(x.id)
+                # print(x.id)
             try:
                 self.lastTellID = self.IDs[0]
                 open('lastID.txt', 'w').write(str(self.lastTellID))
             except IndexError:
-                print('sraka')
+                print('No new tells found.')
+            print('Generating and Sending ' + str(len(self.tellsToSend)) + ' new tells.')
             for x in self.tellsToSend:
                 phot = Pg(['tell', 'image/jpeg', x, self.font, self.rectColor, self.padding, self.fontColor])
                 phot.gen()
