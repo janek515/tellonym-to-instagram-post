@@ -8,9 +8,9 @@ This python module makes images from Tellonym 'tells' and automatically uploads 
 
 ### Dependencies
 In order to run this module you will need:
-- PIL as [Pillow](https://github.com/python-pillow/Pillow)
+- [Pillow](https://github.com/python-pillow/Pillow)
 - [requests](https://requests.readthedocs.io/en/master/)
-- Google Drive API ([Google Client Library](https://developers.google.com/api-client-library))
+- Google Drive API ([Google Client Library](https://developers.google.com/drive/api/v3/quickstart/python#step_2_install_the_google_client_library))
 - [tellonym-python](https://github.com/Logxn/tellonym-python) (included)
 
 #### Installing dependencies
