@@ -1,5 +1,5 @@
 import requests
-from tellonym.exceptions import *
+from tellonym.exceptions import UnknownError
 
 
 class Answer:
