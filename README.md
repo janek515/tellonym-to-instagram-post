@@ -15,8 +15,16 @@ In order to run this module you will need:
 
 #### Installing dependencies
 
+Using pip:
+
 ```bash
 $ pip install -r requirements.txt
+```
+
+Using pipenv:
+
+```bash
+$ pipenv sync
 ```
 
 ### Downloading module
