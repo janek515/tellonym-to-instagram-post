@@ -1,3 +1,5 @@
+#  Copyright (c) 2020. Jan Ochwat.NesTeam
+
 from __future__ import print_function
 import pickle
 import os.path
@@ -50,9 +52,10 @@ def upload(name, mime):
     file_metadata = {
         'name': name
     }
-    folderid = open('drive.txt', 'r').read
+    folderid = open('drive.txt', 'r').read()
     if folderid != 'False':
         file_metadata.update({'parents': [folderid]})
+        print(file_metadata)
         media = MediaFileUpload(name,
                                 mimetype=mime)
         file = main().files().create(body=file_metadata,

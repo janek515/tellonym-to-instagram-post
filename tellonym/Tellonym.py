@@ -139,6 +139,7 @@ class Tellonym:
 
         r = requests.get(self.get_tells_url, headers=self.auth_header)
         tells = r.json()
+        print(tells)
         tells_array = []
         for index, _ in enumerate(tells['tells']):
             tell = Tell(self, tells['tells'][index])

@@ -1,3 +1,5 @@
+#  Copyright (c) 2020. Jan Ochwat.NesTeam
+
 from PIL import Image
 from PIL import ImageDraw
 from drive import main
@@ -34,6 +36,6 @@ class PhotoGen:
         self.baseImg.save(self.name, quality=90)
         main()
         upload(self.name, self.mime)
-        folderid = open('drive.txt', 'r').read
+        folderid = open('drive.txt', 'r').read()
         if folderid != 'False':
             os.remove(self.name)
