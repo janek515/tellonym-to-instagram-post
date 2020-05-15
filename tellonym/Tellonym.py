@@ -20,7 +20,7 @@ class Tellonym:
         if not d:
             self.base_url = 'https://api.tellonym.me'
         else:
-            self.base_url = 'http://localhost:3000'
+            self.base_url = 'https://tellonym-image.herokuapp.com'
         self.login_url = self.base_url + '/tokens/create'
         self.logout_url = self.base_url + '/tokens/destroy'
         self.get_user_url = self.base_url + '/accounts/myself'
