@@ -1,3 +1,5 @@
+#  Copyright (c) 2020. Jan Ochwat.NesTeam
+
 import requests
 from tellonym.exceptions import *
 from tellonym.Profile import Profile
@@ -7,7 +9,7 @@ from tellonym.User import User
 
 class Tellonym:
 
-    def __init__(self, username, password):
+    def __init__(self, username, password, d=False):
         """
         Initializes a new Tellonym Object
 
@@ -15,7 +17,10 @@ class Tellonym:
             username (str): your username for Tellonym
             password (str): your password for Tellonym
         """
-        self.base_url = 'https://api.tellonym.me'
+        if not d:
+            self.base_url = 'https://api.tellonym.me'
+        else:
+            self.base_url = 'http://localhost:3000'
         self.login_url = self.base_url + '/tokens/create'
         self.logout_url = self.base_url + '/tokens/destroy'
         self.get_user_url = self.base_url + '/accounts/myself'

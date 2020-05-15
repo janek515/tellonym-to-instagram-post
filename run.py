@@ -1,3 +1,5 @@
+#  Copyright (c) 2020. Jan Ochwat.NesTeam
+
 from tellonym import Tellonym as Te
 import time as tm
 from photogen import PhotoGen as Pg
@@ -6,7 +8,7 @@ from PIL import ImageFont
 
 class TellonymPost:
 
-    def __init__(self, creds, interval=10, fontcol=(255, 255, 255), rectcol=(47, 49, 51), padding=10):
+    def __init__(self, creds, interval=10, fontcol=(255, 255, 255), rectcol=(47, 49, 51), padding=10, d=False):
         """
     
     Needed variables:
@@ -42,7 +44,7 @@ class TellonymPost:
         self.rectColor = rectcol
         self.padding = padding
         self.fontColor = fontcol
-        self.client = Te.Tellonym(self.username, self.password)
+        self.client = Te.Tellonym(self.username, self.password, d)
         print('Logged in succesfully.')
         self.lastTellID = open('lastID.txt', 'r').read()
         self.tellsToSend = []
