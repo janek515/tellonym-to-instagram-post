@@ -44,7 +44,8 @@ class TellonymPost:
         self.rectColor = rectcol
         self.padding = padding
         self.fontColor = fontcol
-        self.client = Te.Tellonym(self.username, self.password, d)
+        self.d = d
+        self.client = Te.Tellonym(self.username, self.password, self.d)
         print('Logged in succesfully.')
         self.lastTellID = open('lastID.txt', 'r').read()
         self.tellsToSend = []
@@ -67,6 +68,6 @@ class TellonymPost:
                 print('No new tells found.')
             print('Generating and Sending ' + str(len(self.tellsToSend)) + ' new tells.')
             for x in self.tellsToSend:
-                phot = Pg(['tell', 'image/jpeg', x, self.font, self.rectColor, self.padding, self.fontColor])
+                phot = Pg(['tell', 'image/jpeg', x, self.font, self.rectColor, self.padding, self.fontColor, self.d])
                 phot.gen()
             tm.sleep(self.interval * 60)

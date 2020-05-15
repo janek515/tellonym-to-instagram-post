@@ -23,6 +23,7 @@ class PhotoGen:
         # You can vary the size of the rect by changing the fraction of blank area over the image size
         self.width, self.height = (0.168, 0.36)
         self.padding = i[5]
+        self.d = i[7]
         self.rectXY = [(self.width * self.w, self.height * self.h),
                        (self.w - self.width * self.w, self.h - self.height * self.h)]
         self.text = text_wrap(i[2], self.font, (self.w - self.width * self.w) - self.width * self.w - 20)
@@ -34,8 +35,9 @@ class PhotoGen:
         self.draw.multiline_text((self.width * self.w + self.padding, self.height * self.h + self.padding), self.text,
                                  self.fontColor, font=self.font)
         self.baseImg.save(self.name, quality=90)
-        main()
-        upload(self.name, self.mime)
-        folderid = open('drive.txt', 'r').read()
-        if folderid != 'False':
+        print('File successfully generated.')
+        folderID = open('drive.txt', 'r').read()
+        if folderID is not 'False' and not self.d:
+            main()
+            upload(self.name, self.mime)
             os.remove(self.name)
