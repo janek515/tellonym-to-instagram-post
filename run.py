@@ -40,7 +40,7 @@ class TellonymPost:
         """
         self.username, self.password = creds
         self.interval = interval
-        self.font = ImageFont.truetype("Lato.ttf", 24, encoding='utf-8')
+        self.font = ImageFont.truetype("Lato.ttf", 36, encoding='utf-8')
         self.rectColor = rectcol
         self.padding = padding
         self.fontColor = fontcol
