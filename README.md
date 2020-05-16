@@ -2,7 +2,7 @@
 
 ![Contributors](https://img.shields.io/github/contributors/janek515/tellonym-to-instagram-post) ![Size](https://img.shields.io/github/repo-size/janek515/tellonym-to-instagram-post) ![Python application](https://github.com/janek515/tellonym-to-instagram-post/workflows/Python%20application/badge.svg?branch=master)
 
-This python module makes images from Tellonym 'tells' and automatically uploads the to your google drive.
+This python module makes images from Tellonym 'tells' and automatically uploads the to your Google Drive.
 
 ## Installation
 
@@ -48,18 +48,19 @@ To initialize the module you need define the class:
 ```python
 from run import TellonymPost as TP
 
-tellpost = TP(creds, interval, fontcol, rectcol, padding)
+tellpost = TP(creds, interval, fontcol, rectcol, padding, d)
 
 ```
 
-The `__init__` function have 5 parameters:
+The `__init__` function have 6 parameters:
 | Parameter | Description | Type | Default value | Optional |
 | --- | --- | --- | --- | --- |
-| `creds` | Tellonym credentials | `tuple[str, str]` | None | No |
-| `interval` | Interval for checking on new tells (in minutes). | `int` | 10 | Yes |
-| `fontcol` | Font color as 24 bit RGB value. | `tuple[int, int, int]` | (255, 255, 255) | Yes |
-| `rectcol` | Textbox BG color as 24 bit RGB value.  | `tuple[int, int, int]` | (0, 0, 0) | Yes |
-| `padding` | Padding of the text inside the textbox (in pixels). | `int` | 10 | Yes |
+| `creds` | Tellonym credentials | `tuple[str, str]` | `None` | No |
+| `interval` | Interval for checking on new tells (in minutes). | `int` | `10` | Yes |
+| `fontcol` | Font color as 24 bit RGB value. | `tuple[int, int, int]` | `(255, 255, 255)` | Yes |
+| `rectcol` | Textbox BG color as 24 bit RGB value.  | `tuple[int, int, int]` | `(0, 0, 0)` | Yes |
+| `padding` | Padding of the text inside the textbox (in pixels). | `int` | `10` | Yes |
+| `d` | Debug mode | `bool` | `False` | Yes |
 
 To start the automation you need to call a function:
 ```python
@@ -72,7 +73,7 @@ tellpost.run()
 
 ```
 
-Now the function will start checking the 'tells', generating imagea, and sending them to your Google Drive.
+Now the function will start checking tells, generating images, and sending them to your Google Drive.
 
 ## Copyright and Credits
 
