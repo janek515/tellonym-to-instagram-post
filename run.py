@@ -53,6 +53,7 @@ class TellonymPost:
 
     def run(self):
         while 1:
+            self.lastTellID = open('lastID.txt', 'r').read()
             self.tellsToSend = []
             self.IDs = []
             for x in self.client.get_tells():
