@@ -26,8 +26,9 @@ class PhotoGen:
         self.d = i[7]
         self.rectXY = [(self.width * self.w, self.height * self.h),
                        (self.w - self.width * self.w, self.h - self.height * self.h)]
+        # TODO: Fix padding
         self.text = text_wrap(i[2], self.font, (self.w - self.width * self.w) - self.width * self.w - 20)
-        print(self.text)
+        # print(self.text)
         open('no.txt', 'w').write(str(int(self.no) + 1).zfill(5))
 
     def gen(self):
@@ -35,7 +36,7 @@ class PhotoGen:
         self.draw.multiline_text((self.width * self.w + self.padding, self.height * self.h + self.padding), self.text,
                                  self.fontColor, font=self.font)
         self.baseImg.save(self.name, quality=90)
-        print('File successfully generated.')
+        # print('File successfully generated.')
         folderID = open('drive.txt', 'r').read()
         if folderID != 'False\n' and not self.d:
             main()

@@ -71,6 +71,7 @@ class TellonymPost:
             for x in self.tellsToSend:
                 phot = Pg(['tell', 'image/jpeg', x, self.font, self.rectColor, self.padding, self.fontColor, self.d])
                 phot.gen()
+            print('Tells successfully generated/uploaded.')
             if self.d:
                 break
             else:
